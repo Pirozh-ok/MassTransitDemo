@@ -12,8 +12,8 @@ using SagaService.Models;
 namespace SagaService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230803001349_StateData")]
-    partial class StateData
+    [Migration("20240227044744_SagaDataInitial")]
+    partial class SagaDataInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

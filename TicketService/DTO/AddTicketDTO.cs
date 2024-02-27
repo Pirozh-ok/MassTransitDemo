@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TicketService.DTO
-{
-    public class AddTicketDTO
-    {
+namespace TicketService.DTO {
+    public class AddTicketDTO {
 
-        public string TicketId { get; set; } = Guid.NewGuid().ToString();   
+        public string TicketId { get; set; } = Guid.NewGuid().ToString();
         public string Title { get; set; }
         [Required]
         public string Email { get; set; }

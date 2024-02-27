@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Events.TicketEvents
-{
+﻿namespace Events.TicketEvents {
     public interface IGenerateTicketEvent
     {
         public Guid TicketId { get; }

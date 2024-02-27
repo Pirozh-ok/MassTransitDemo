@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GenerateTicket.Migrations
 {
     /// <inheritdoc />
-    public partial class TicketInfo : Migration
+    public partial class TicketInfoInitial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

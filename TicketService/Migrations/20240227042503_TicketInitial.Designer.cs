@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SagaService.Models;
+using TicketService.Models;
 
 #nullable disable
 
-namespace SagaService.Migrations
+namespace TicketService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230802235531_State")]
-    partial class State
+    [Migration("20240227042503_TicketInitial")]
+    partial class TicketInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,17 +25,16 @@ namespace SagaService.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SagaService.Models.TicketState", b =>
+            modelBuilder.Entity("TicketService.Models.Ticket", b =>
                 {
-                    b.Property<Guid>("CorrelationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("TicketId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("CurrentState")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -43,14 +42,8 @@ namespace SagaService.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("TicketCancelDate")
+                    b.Property<DateTime>("RequireDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("TicketCreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("TicketId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TicketNumber")
                         .HasColumnType("nvarchar(max)");
@@ -58,9 +51,9 @@ namespace SagaService.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CorrelationId");
+                    b.HasKey("TicketId");
 
-                    b.ToTable("TicketStates");
+                    b.ToTable("Ticket");
                 });
 #pragma warning restore 612, 618
         }

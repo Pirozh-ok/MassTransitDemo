@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Events.TicketEvents
-{
+﻿namespace Events.TicketEvents {
     // This event is not going to use in the State machine 
     // It will used in the first service which here is TicketService
     public interface IGETValueEvent

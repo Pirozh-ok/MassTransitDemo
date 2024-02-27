@@ -1,7 +1,5 @@
-﻿namespace TicketService.Models
-{
-    public class Ticket
-    {
+﻿namespace TicketService.Models {
+    public class Ticket {
         public string TicketId { get; set; }
         public string Title { get; set; }
         public string Email { get; set; }

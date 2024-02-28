@@ -10,9 +10,8 @@ namespace TicketService.Consumers {
         }
         public async Task Consume(ConsumeContext<IGETValueEvent> context) {
             var data = context.Message;
+
             if (data is not null) {
-                // This section will publish message to the IAddTicketEvent although the GenerateTicket service has a consumer
-                // that it will be listened on the IAddTicketEvent
                 await context.Publish<IAddTicketEvent>(new {
                     TicketId = data.TicketId,
                     Title = data.Title,
@@ -21,6 +20,7 @@ namespace TicketService.Consumers {
                     Age = data.Age,
                     Location = data.Location
                 });
+
                 _logger.LogInformation("a message has been received");
             }
         }

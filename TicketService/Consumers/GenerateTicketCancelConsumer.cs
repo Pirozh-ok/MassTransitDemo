@@ -1,6 +1,5 @@
 ﻿using Events.TicketEvents;
 using MassTransit;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using TicketService.Services;
 
 namespace TicketService.Consumers {

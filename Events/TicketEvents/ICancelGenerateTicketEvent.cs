@@ -1,6 +1,5 @@
 ﻿namespace Events.TicketEvents {
-    public interface ICancelGenerateTicketEvent
-    {
+    public interface ICancelGenerateTicketEvent {
         public Guid TicketId { get; }
         public string Title { get; }
         public string Email { get; }

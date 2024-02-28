@@ -1,6 +1,5 @@
 ﻿namespace Events.SendEmailEvents {
-    public interface ICancelSendEmailEvent
-    {
+    public interface ICancelSendEmailEvent {
         public Guid TicketId { get; }
         public string Title { get; }
         public string Email { get; }

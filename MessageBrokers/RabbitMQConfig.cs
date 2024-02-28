@@ -1,8 +1,8 @@
 ﻿namespace MessageBrokers {
-    public class RabbitMQConfig
-    {
-        public const string RabbitMQURL = "rabbitmq://localhost:15672";
-        public const string UserName = "guest";
-        public const string Password = "guest";
+    public class RabbitMQConfig {
+        public const string RabbitMQURL = "localhost";
+        public const string UserName = "admin";
+        public const string Password = "admin";
+        public const string Host = "MassTransitHost";
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace Events.TicketEvents {
-    public interface IAddTicketEvent
-    {
+    public interface IAddTicketEvent {
         public Guid TicketId { get; }
         public string Title { get; }
         public string Email { get; }

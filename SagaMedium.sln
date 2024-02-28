@@ -5,17 +5,22 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketService", "TicketService\TicketService.csproj", "{9AC7F4CE-23EE-476F-A252-A544D73E28EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateTicket", "GenerateTicket\GenerateTicket.csproj", "{678CCB14-3D9F-476F-918A-A744265C643C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateTicket", "GenerateTicket\GenerateTicket.csproj", "{678CCB14-3D9F-476F-918A-A744265C643C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{425EF242-DF8B-4612-88F9-C5C0F107282E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailService", "EmailService\EmailService.csproj", "{425EF242-DF8B-4612-88F9-C5C0F107282E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "Events\Events.csproj", "{039D30EF-DA12-403D-A51C-0844E3C0A68B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events", "Events\Events.csproj", "{039D30EF-DA12-403D-A51C-0844E3C0A68B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBrokers", "MessageBrokers\MessageBrokers.csproj", "{ACE19FF3-FDD3-402E-AC42-074CC627FCDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBrokers", "MessageBrokers\MessageBrokers.csproj", "{ACE19FF3-FDD3-402E-AC42-074CC627FCDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaStateMachine", "SagaStateMachine\SagaStateMachine.csproj", "{FDB29C08-84DB-4BC6-AB0C-B7844F830DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SagaStateMachine", "SagaStateMachine\SagaStateMachine.csproj", "{FDB29C08-84DB-4BC6-AB0C-B7844F830DDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaService", "SagaService\SagaService.csproj", "{4CFDF2C7-CC6A-49B1-8150-CC58B5761DB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SagaService", "SagaService\SagaService.csproj", "{4CFDF2C7-CC6A-49B1-8150-CC58B5761DB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E615E5DA-6A43-42D0-9FFF-2E134A4A03CB}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,11 +5,19 @@ services:
     image: rabbitmq:3.13-rc-management
     ports:
       - 15672:15672
+      - 5672:5672
+    hostname: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
 
   db_service:
     image: mcr.microsoft.com/mssql/server:2019-latest
     ports:
-      - 1433:1433
+      - 1434:1433
     volumes:
       - ./mssql/db_service:/var/lib/mssqlql/data
     environment:

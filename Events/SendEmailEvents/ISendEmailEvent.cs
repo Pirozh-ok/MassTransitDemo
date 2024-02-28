@@ -1,6 +1,5 @@
 ﻿namespace Events.SendEmailEvents {
-    public interface ISendEmailEvent
-    {
+    public interface ISendEmailEvent {
         public Guid TicketId { get; }
         public string Title { get; }
         public string Email { get; }

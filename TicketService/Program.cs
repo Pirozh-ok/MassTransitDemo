@@ -1,4 +1,5 @@
 using MassTransit;
+using MessageBrokers;
 using Microsoft.EntityFrameworkCore;
 using TicketService.Consumers;
 using TicketService.Models;
@@ -11,14 +12,16 @@ builder.Services.AddControllers();
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
 builder.Services.AddDbContextPool<AppDbContext>(db => db.UseSqlServer(connectionString));
 
-// Registe MassTransit
-builder.Services.AddMassTransit(cfg =>
-{
-    cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
-    {
+// Register MassTransit
+builder.Services.AddMassTransit(cfg => {
+    cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg => {
+        cfg.Host($"rabbitmq://{RabbitMQConfig.RabbitMQURL}/{RabbitMQConfig.Host}", hst => {
+            hst.Username(RabbitMQConfig.UserName);
+            hst.Password(RabbitMQConfig.Password);
+        });
+
         //Config endpoint
-        cfg.ReceiveEndpoint(MessageBrokers.RabbitMQQueues.SagaBusQueue, ep =>
-        {
+        cfg.ReceiveEndpoint(MessageBrokers.RabbitMQQueues.SagaBusQueue, ep => {
             ep.PrefetchCount = 10;
             // Get Consumer
             ep.ConfigureConsumer<GetValueConsumer>(provider);

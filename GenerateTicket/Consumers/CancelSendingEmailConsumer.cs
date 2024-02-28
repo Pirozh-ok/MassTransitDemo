@@ -3,28 +3,24 @@ using Events.TicketEvents;
 using GenerateTicket.Services;
 using MassTransit;
 
-namespace GenerateTicket.Consumers
-{
-    public class CancelSendingEmailConsumer : IConsumer<ICancelSendEmailEvent>
-    {
+namespace GenerateTicket.Consumers {
+    public class CancelSendingEmailConsumer : IConsumer<ICancelSendEmailEvent> {
         private readonly ITicketInfoService _ticketInfoService;
         private readonly ILogger<CancelSendingEmailConsumer> _logger;
 
-        public CancelSendingEmailConsumer(ITicketInfoService ticketInfoService, ILogger<CancelSendingEmailConsumer> logger)
-        {
+        public CancelSendingEmailConsumer(ITicketInfoService ticketInfoService, ILogger<CancelSendingEmailConsumer> logger) {
             _ticketInfoService = ticketInfoService;
             _logger = logger;
         }
-        public async Task Consume(ConsumeContext<ICancelSendEmailEvent> context)
-        {
+
+        public async Task Consume(ConsumeContext<ICancelSendEmailEvent> context) {
             var data = context.Message;
-            if(data is not null)
-            {
+
+            if (data is not null) {
                 var res = _ticketInfoService.RemoveTicketInfo(data.TicketId.ToString());
-                if(res is true)
-                {
-                    await context.Publish<ICancelGenerateTicketEvent>(new
-                    {
+
+                if (res is true) {
+                    await context.Publish<ICancelGenerateTicketEvent>(new {
                         TicketId = data.TicketId,
                         Title = data.Title,
                         Email = data.Email,
@@ -34,11 +30,8 @@ namespace GenerateTicket.Consumers
                     });
                     _logger.LogInformation("The message has been sent to the ICancelGenerateTicketEvent in the TicketService");
                 }
-
-                else
-                {
+                else {
                     _logger.LogInformation("Failed!!!");
-
                 }
             }
         }

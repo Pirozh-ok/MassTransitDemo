@@ -1,6 +1,5 @@
 ﻿namespace Events.TicketEvents {
-    // This event is not going to use in the State machine 
-    // It will used in the first service which here is TicketService
+    // Initial command for transaction
     public interface IGETValueEvent
     {
         public Guid TicketId { get; }

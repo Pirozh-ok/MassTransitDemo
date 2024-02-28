@@ -12,16 +12,10 @@ As shown in the above image, a client will send a request to TicketService to re
 
 ## Prerequires
 - C# and .NET Core
-- Visual Studio or VSCode
-- Entity Framework core or any other ORMs
-- SQL or NoSQL databases
+- Visual Studio
+- Entity Framework core
+- MSSQL Server
 - MassTransit
 - RabbitMQ
 - Docker
 - Postman
-
-## YouTube 
-https://youtu.be/dTI4FF7VogU 
-
-## Medium 
-https://medium.com/@vahidalizadeh1990/implementation-of-saga-orchestration-using-masstransit-dd238530f0d7

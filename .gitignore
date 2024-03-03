@@ -363,5 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # RabbitMq folder
+./rabbitmq
 rabbitmq
 rabbitmq/*

@@ -1,11 +1,6 @@
 ﻿using Events.SendEmailEvents;
 using Events.TicketEvents;
 using MassTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SagaStateMachine {
     public class TicketStateMachine : MassTransitStateMachine<TicketStateData> {

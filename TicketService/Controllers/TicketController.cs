@@ -27,7 +27,6 @@ namespace TicketService.Controllers {
             var res = await _ticketServices.AddTicket(mapModel);
 
             if (res is not null) {
-                // map model to the DTO and pass the DTO object to the bus queue
                 var mapResult = _mapper.Map<ResponseTicketDTO>(res);
                 // Send to the Bus
                 var endPoint = await _bus.GetSendEndpoint(new Uri("queue:" + MessageBrokers.RabbitMQQueues.SagaBusQueue));

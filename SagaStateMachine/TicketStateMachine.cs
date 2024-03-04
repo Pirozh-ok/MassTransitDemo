@@ -4,13 +4,13 @@ using MassTransit;
 
 namespace SagaStateMachine {
     public class TicketStateMachine : MassTransitStateMachine<TicketStateData> {
-        // 4 states are going to happen
+        // 4 states
         public State AddTicket { get; private set; }
         public State CancelTicket { get; private set; }
         public State CancelSendEmail { get; private set; }
         public State SendEmail { get; private set; }
 
-        // 4 events are going to happen
+        // 4 events
 
         public Event<IAddTicketEvent> AddTicketEvent { get; private set; }
         public Event<ICancelGenerateTicketEvent> CancelGenerateTicketEvent { get; private set; }
@@ -24,8 +24,6 @@ namespace SagaStateMachine {
             Event(() => CancelSendEmailEvent, a => a.CorrelateById(m => m.Message.TicketId));
             Event(() => SendEmailEvent, a => a.CorrelateById(m => m.Message.TicketId));
 
-            // A message comming from ticket service 
-            // it could be the initially state
             Initially(
                 When(AddTicketEvent).Then(context => {
                     context.Saga.TicketId = context.Message.TicketId;
@@ -36,11 +34,9 @@ namespace SagaStateMachine {
                     context.Saga.Location = context.Message.Location;
                 }).TransitionTo(AddTicket).Publish(context => new GenerateTicketEvent(context.Saga)));
 
-            // During AddTicketEvent some other events might occured 
             During(AddTicket,
                 When(SendEmailEvent)
                 .Then(context => {
-                    // These values could be different 
                     context.Saga.TicketId = context.Message.TicketId;
                     context.Saga.Title = context.Message.Title;
                     context.Saga.Email = context.Message.Email;
@@ -52,7 +48,6 @@ namespace SagaStateMachine {
             During(AddTicket,
                 When(CancelGenerateTicketEvent)
                 .Then(context => {
-                    // These values could be different 
                     context.Saga.TicketId = context.Message.TicketId;
                     context.Saga.Title = context.Message.Title;
                     context.Saga.Email = context.Message.Email;
@@ -61,11 +56,9 @@ namespace SagaStateMachine {
                     context.Saga.Location = context.Message.Location;
                 }).TransitionTo(CancelTicket));
 
-            // During SendEmailEvent some other events might occured 
             During(SendEmail,
                 When(CancelSendEmailEvent)
                 .Then(context => {
-                    // These values could be different 
                     context.Saga.TicketId = context.Message.TicketId;
                     context.Saga.Title = context.Message.Title;
                     context.Saga.Email = context.Message.Email;
